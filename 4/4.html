@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grokaem algorithms - exercise 4.4</title>
+    </head>
+    <body>
+        <p id="answer"></p>
+        <script>
+            [1,2,3,4,5,6]
+            let sortedArr = [-100, -43, 0, 2, 4, 6, 7, 231, 103884, 103885];
+            let binarySearch = function(arr, searchNum, startIndex) {
+                console.log(arr);
+                if (!arr.length) return null;
+                if (arr.length === 1 && arr[0] !== searchNum) return null; 
+                let mid = Math.floor((arr.length - 1) / 2);
+                if (arr[mid] === searchNum) return mid + startIndex;
+                else if (arr[mid] < searchNum) return binarySearch(arr.slice(mid + 1), searchNum, startIndex + mid + 1);
+                else return binarySearch(arr.slice(0, mid), searchNum, startIndex);
+            }
+            let answer = binarySearch(sortedArr, 232, 0);
+            document.getElementById("answer").innerHTML = answer === null ? 'null' : answer;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grokaem algorithms - exercise 4.2</title>
+    </head>
+    <body>
+        <p id="answer"></p>
+        <script>
+            const list = {
+                head: {
+                    value: 6,
+                    next: {
+                        value: 10,
+                        next: {
+                            value: 12,
+                            next: {
+                                value: 3,
+                                next: null
+                            }
+                        }
+                    }
+                }
+            };
+            let num = function(list) {
+                if (!list) return 0;
+                return 1 + num(list.next);
+            }
+            document.getElementById("answer").innerHTML = num(list.head);
+        </script>
+    </body>
+</html>

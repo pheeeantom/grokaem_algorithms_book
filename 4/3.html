@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grokaem algorithms - exercise 4.3</title>
+    </head>
+    <body>
+        <p id="answer"></p>
+        <script>
+            const list = {
+                head: {
+                    value: 0,
+                    next: {
+                        value: 10,
+                        next: {
+                            value: -5,
+                            next: {
+                                value: 3,
+                                next: null
+                            }
+                        }
+                    }
+                }
+            };
+            let max = function(list, maxNum) {
+                if (!list) return maxNum;
+                if (list.value > maxNum) return max(list.next, list.value);
+                else return max(list.next, maxNum);
+            }
+            document.getElementById("answer").innerHTML = max(list.head, list.head.value);
+        </script>
+    </body>
+</html>
